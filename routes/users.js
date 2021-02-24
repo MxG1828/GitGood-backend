@@ -1,9 +1,22 @@
 const router = require("express").Router();
 
 module.exports = (db) => {
+
+  router.get("/all", (request, response) => {
+    db.query(
+      `SELECT * FROM users
+      ;`
+    )
+      .then((res) => {
+        response.json(res.rows);
+      })
+      .catch((err) => {
+        response.json(err);
+      });
+  });
+
   router.get("/login", (request, response) => {
     const { userName } = request.query;
-    console.log(userName);
     db.query(
       `SELECT * FROM users
       WHERE username = $1
