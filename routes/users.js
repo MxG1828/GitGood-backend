@@ -2,6 +2,12 @@ const router = require("express").Router();
 
 module.exports = (db) => {
 
+
+  router.get("/test1", (request, response) => {
+    
+        response.json({message:"test1"});
+      
+  });
   router.get("/all", (request, response) => {
     db.query(
       `SELECT * FROM users
