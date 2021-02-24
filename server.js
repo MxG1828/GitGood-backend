@@ -41,6 +41,7 @@ App.use("/", loginRoutes(db));
 
 // Sample GET route
 App.get('/', (req, res) => res.json({message: "Seems to work!"}));
+App.get('/test', (req, res) => res.json({message: "test!"}));
 
 // An api endpoint that returns a short list of items
 App.get('/api/getList', (req,res) => {
